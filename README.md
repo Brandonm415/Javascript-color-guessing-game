@@ -1,1 +1,0 @@
-Javascript color guessing game
