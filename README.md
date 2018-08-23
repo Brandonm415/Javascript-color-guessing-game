@@ -1,1 +1,1 @@
-# practice
+Javascript color guessing game
