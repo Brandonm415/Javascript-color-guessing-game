@@ -8,7 +8,8 @@ var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
 var easyBtn = document.querySelector("#easyButton");
 var hardBtn = document.querySelector("#hardButton");
-
+var levelCounter = document.querySelector("#level");
+var currentLevel = 1;
 
 easyBtn.addEventListener("click", function(){
 	//highlight button to show selected
@@ -75,12 +76,16 @@ for(var i = 0; i < squares.length; i++) {
 		console.log(clickedColor, pickedColor);
 		if(clickedColor === pickedColor){
 			messageDisplay.textContent = "Correct!";
-			resetButton.textContent = "Play Again?";
-			changeColors(clickedColor);
+			resetButton.textContent = "Next Level?";
+			currentLevel++;
+			levelCounter.textContent = currentLevel;
+			changeColors("#232323");
 			h1.style.background = clickedColor;
 		}	else {
 			this.style.backgroundColor = "#232323";
-			messageDisplay.textContent = "Try Again";
+			messageDisplay.textContent = "Wrong! Back to Level 1";
+			currentLevel = 1;
+			levelCounter.textContent = currentLevel;
 		}
 		});
 }
@@ -119,4 +124,8 @@ function randomColor(){
 	// pick a "blue" from 0 - 255
 	var b = Math.floor(Math.random() * 256);
 	return "rgb(" + r +", " + g +", " + b +")";
+}
+
+function addLevel(){
+
 }
